@@ -12,5 +12,7 @@ public class SplitWise {
         System.out.println(numFriends);
         System.out.println(payerName);
         System.out.println(sharePerPerson);
+        System.out.println(payerName + "Paid :" + totalAmount);
+        System.out.println("Each Person Share : " + sharePerPerson);
     }
 }
