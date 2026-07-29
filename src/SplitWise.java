@@ -3,8 +3,9 @@ import java.util.Scanner;
 public class SplitWise {
 
     public static void addFriends(ArrayList<Friend> friends, String friendName) {
-        friends.add(new Friend(friendName));
-        System.out.println("%s added to friends list.".formatted(friendName));
+        Friend friend = new Friend(friendName);
+        friends.add(friend);
+        System.out.println("%s added to friends list with ID %d.".formatted(friendName,friend.getId()));
     }
 
 
@@ -27,9 +28,8 @@ public class SplitWise {
             switch(ch){
                 case 1->{
                     
-                    if(friends.size() == 0){
+                    if(friends.isEmpty()){
                         System.out.println("No friends added yet. Please add friends first.");
-                        break;
                     }
 
                     System.out.print("Payer Name : ");
@@ -55,14 +55,13 @@ public class SplitWise {
             }
                 case 3 -> {
 
-                    if(friends.size() == 0){
+                    if(friends.isEmpty()){
                         System.out.println("No friends added yet. Please add friends first.");
-                        break;
                     }
 
                     System.out.println("Friends List");
                     for (Friend friend : friends) {
-                        System.out.println(" - " + friend.getName());
+                        System.out.println(" - %d : %s".formatted( friend.getId(), friend.getName()));
                     }
 
                 }
