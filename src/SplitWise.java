@@ -20,6 +20,7 @@ public class SplitWise {
             System.out.println("2. Add Friends");
             System.out.println("3. List Friends");
             System.out.println("0. Exit");
+            System.out.print("Enter Choice : ");
             int ch = sc.nextInt();
             sc.nextLine();
 
@@ -35,13 +36,13 @@ public class SplitWise {
                     String payerName = sc.nextLine();
                     System.out.print("Total Amount :");
                     double totalAmount = sc.nextDouble();
-                    Expense expense = new Expense(payerName,totalAmount);
+                    ExpenseLine expenseLine = new ExpenseLine(payerName,totalAmount);
                     int numFriends = friends.size(); 
-                    double sharePerPerson = expense.getAmount()/numFriends;
+                    double sharePerPerson = expenseLine.totalAmount()/numFriends;
                 
 
                     String shareMsg = "Each person should pay %.2f".formatted(sharePerPerson);
-                    String expenseMsg = "%s paid %.2f".formatted(expense.getPayerName(),expense.getAmount());
+                    String expenseMsg = "%s paid %.2f".formatted(expenseLine.payerName(),expenseLine.totalAmount());
                     
                     System.out.println(friends.size());
                     System.out.println(expenseMsg);
