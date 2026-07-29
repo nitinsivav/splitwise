@@ -1,7 +1,11 @@
 public class Friend{
-    String name;
+    private String name;
 
     public Friend(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

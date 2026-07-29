@@ -58,7 +58,7 @@ public class SplitWise {
 
                     System.out.println("Friends List");
                     for (Friend friend : friends) {
-                        System.out.println(" - " + friend.name);
+                        System.out.println(" - " + friend.getName());
                     }
 
                 }
