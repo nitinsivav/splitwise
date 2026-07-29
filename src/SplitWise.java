@@ -2,21 +2,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class SplitWise {
 
-    public static void addFriends(ArrayList<String> friends, String friendName) {
-        friends.add(friendName);
+    public static void addFriends(ArrayList<Friend> friends, String friendName) {
+        friends.add(new Friend(friendName));
         System.out.println("%s added to friends list.".formatted(friendName));
     }
 
-    public static void listFriends(ArrayList<String> friends) {
-        System.out.println("=== Friends List ===");
-        for (String friend : friends) {
-            System.out.println(" - " + friend);
-        }
-    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<String> friends = new ArrayList<>();
+        ArrayList<Friend> friends = new ArrayList<>();
 
         System.out.println("=== Splitwise App ===");
         System.out.println("Track Shared Shared Expense");
@@ -62,7 +56,11 @@ public class SplitWise {
                         break;
                     }
 
-                    listFriends(friends);
+                    System.out.println("Friends List");
+                    for (Friend friend : friends) {
+                        System.out.println(" - " + friend.name);
+                    }
+
                 }
                 case 0 -> {
                     System.out.println("Goodbye...");
