@@ -35,10 +35,13 @@ public class SplitWise {
                     String payerName = sc.nextLine();
                     System.out.print("Total Amount :");
                     double totalAmount = sc.nextDouble();
-                    double sharePerPerson = totalAmount/friends.size();
+                    Expense expense = new Expense(payerName,totalAmount);
+                    int numFriends = friends.size(); 
+                    double sharePerPerson = expense.getAmount()/numFriends;
+                
 
                     String shareMsg = "Each person should pay %.2f".formatted(sharePerPerson);
-                    String expenseMsg = "%s paid %.2f".formatted(payerName,totalAmount);
+                    String expenseMsg = "%s paid %.2f".formatted(expense.getPayerName(),expense.getAmount());
                     
                     System.out.println(friends.size());
                     System.out.println(expenseMsg);
