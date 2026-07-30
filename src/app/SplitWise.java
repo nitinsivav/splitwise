@@ -1,3 +1,8 @@
+package app;
+
+import model.ExpenseLine;
+import model.Friend;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 public class SplitWise {
@@ -49,7 +54,7 @@ public class SplitWise {
                     System.out.println(shareMsg);
             }
                 case 2 -> {
-                    System.out.print("Enter Friend Name : ");
+                    System.out.print("Enter model.Friend Name : ");
                     String friendName = sc.nextLine();
                     addFriends(friends, friendName);
             }

@@ -1,3 +1,5 @@
+package model;
+
 public class Friend{
 
     private static int idGenerator = 0;
