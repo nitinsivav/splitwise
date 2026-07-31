@@ -1,22 +1,34 @@
 package app;
 
-import model.ExpenseLine;
-import model.Friend;
-
 import java.util.ArrayList;
 import java.util.Scanner;
+import model.ExpenseLine;
+import model.Friend;
 public class SplitWise {
 
     public static void addFriends(ArrayList<Friend> friends, String friendName) {
         Friend friend = new Friend(friendName);
         friends.add(friend);
-        System.out.println("%s added to friends list with ID %d.".formatted(friendName,friend.getId()));
+    }
+
+    private static class FriendDisplay{
+        public static void addedMessage(Friend friend){
+            System.out.println("%s added to friends list with ID %d.".formatted(friend.getName(),friend.getId()));
+        }
+
+        public static void listFriends(ArrayList<Friend> friends){
+            System.out.println("Friends List");
+            for (Friend friend : friends) {
+                System.out.println(" - %d : %s".formatted( friend.getId(), friend.getName()));
+            }
+        }
     }
 
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Friend> friends = new ArrayList<>();
+        int numFriends = 0;
 
         System.out.println("=== Splitwise App ===");
         System.out.println("Track Shared Shared Expense");
@@ -42,7 +54,7 @@ public class SplitWise {
                     System.out.print("Total Amount :");
                     double totalAmount = sc.nextDouble();
                     ExpenseLine expenseLine = new ExpenseLine(payerName,totalAmount);
-                    int numFriends = friends.size(); 
+                    numFriends = friends.size(); 
                     double sharePerPerson = expenseLine.totalAmount()/numFriends;
                 
 
@@ -54,9 +66,11 @@ public class SplitWise {
                     System.out.println(shareMsg);
             }
                 case 2 -> {
-                    System.out.print("Enter model.Friend Name : ");
+                    System.out.print("Enter Friend Name : ");
                     String friendName = sc.nextLine();
                     addFriends(friends, friendName);
+                    numFriends++;
+                    FriendDisplay.addedMessage(friends.get(numFriends - 1));
             }
                 case 3 -> {
 
@@ -65,9 +79,7 @@ public class SplitWise {
                     }
 
                     System.out.println("Friends List");
-                    for (Friend friend : friends) {
-                        System.out.println(" - %d : %s".formatted( friend.getId(), friend.getName()));
-                    }
+                    FriendDisplay.listFriends(friends);
 
                 }
                 case 0 -> {
