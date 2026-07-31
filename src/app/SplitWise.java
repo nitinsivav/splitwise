@@ -1,3 +1,7 @@
+/**
+ *  The Main Application Of The SplitWise
+ */
+
 package app;
 
 import java.util.ArrayList;
@@ -6,16 +10,30 @@ import model.ExpenseLine;
 import model.Friend;
 public class SplitWise {
 
+    /**
+     *
+     * @param friends ArrayList
+     * @param friendName Gets The Name
+     */
     public static void addFriends(ArrayList<Friend> friends, String friendName) {
         Friend friend = new Friend(friendName);
         friends.add(friend);
     }
 
+
     private static class FriendDisplay{
+        /**
+         * Prints Added Message
+         * @param friend To Get The Friend
+         */
         public static void addedMessage(Friend friend){
             System.out.println("%s added to friends list with ID %d.".formatted(friend.getName(),friend.getId()));
         }
 
+        /**
+         * Lists Add The Added Friends
+         * @param friends ArrayList
+         */
         public static void listFriends(ArrayList<Friend> friends){
             System.out.println("Friends List");
             for (Friend friend : friends) {
@@ -27,6 +45,9 @@ public class SplitWise {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        /**
+         * Stores Friends
+         */
         ArrayList<Friend> friends = new ArrayList<>();
         int numFriends = 0;
 
